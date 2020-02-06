@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
+import android.util.Log
 import com.example.android.navigation.databinding.FragmentTitleBinding
 
 /**
@@ -20,13 +21,48 @@ class TitleFragment : Fragment() {
                 R.layout.fragment_title, container, false)
         //The complete onClickListener with Navigation
         binding.playButton.setOnClickListener {
-            view?.findNavController()?.navigate(R.id.action_titleFragment_to_gameFragment)
+            view?.findNavController()?.navigate(TitleFragmentDirections.actionTitleFragmentToGameFragment())
         }
 
         //set the menu
         setHasOptionsMenu(true)
+        Log.i("Title", "onCreatView called")
 
         return binding.root
+    }
+
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        Log.i("TitleFragment", "onCreate called")
+    }
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        Log.i("TitleFragment", "onActivityCreated called")
+    }
+    override fun onStart() {
+        super.onStart()
+        Log.i("TitleFragment", "onStart called")
+    }
+    override fun onResume() {
+        super.onResume()
+        Log.i("TitleFragment", "onResume called")
+    }
+    override fun onPause() {
+        super.onPause()
+        Log.i("TitleFragment", "onPause called")
+    }
+    override fun onStop() {
+        super.onStop()
+        Log.i("TitleFragment", "onStop called")
+    }
+    override fun onDestroyView() {
+        super.onDestroyView()
+        Log.i("TitleFragment", "onDestroyView called")
+    }
+    override fun onDetach() {
+        super.onDetach()
+        Log.i("TitleFragment", "onDetach called")
     }
 
     override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
